@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>谱智安 - AI 核素智能识别平台</title>
+  <script src="assets/tailwind.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#070D18',
+            card: '#0D1B2E',
+            cyan: '#00D4FF',
+            blue: '#0066FF',
+            border: '#1E3A5F',
+            muted: '#7A9CC6'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: radial-gradient(circle at 20% 10%, rgba(0,102,255,0.14), transparent 34%), #070D1A; }
+  </style>
+</head>
+<body class="min-h-screen text-[#E6F1FF] font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-[#1E3A5F]/60 bg-[#070D1A]/85 backdrop-blur-xl">
+    <div class="max-w-[1440px] mx-auto h-[72px] px-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <svg class="w-8 h-8 text-[#00D4FF] drop-shadow-[0_0_8px_rgba(0,212,255,0.7)]" fill="none" viewBox="0 0 36 36">
+          <path d="M4 18H8L11 9L16 27L21 13L25 21L28 18H32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-xl font-bold">谱智安</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm">
+    <a class="text-slate-300 hover:text-white transition-colors py-2" href="index.html">首页</a>
+    <a class="text-slate-300 hover:text-white transition-colors py-2" href="product-features.html">产品功能</a>
+    <a class="text-slate-300 hover:text-white transition-colors py-2" href="core-technology.html">核心技术</a>
+    <a class="text-slate-300 hover:text-white transition-colors py-2" href="application-scenarios.html">应用场景</a>
+    <a class="text-slate-300 hover:text-white transition-colors py-2" href="solutions.html">解决方案</a>
+    <a class="text-slate-300 hover:text-white transition-colors py-2" href="about.html">关于我们</a>
+    </nav>
+      <a href="platform.html" class="rounded-full bg-gradient-to-r from-[#00D4FF] to-[#0066FF] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(0,212,255,0.4)]">进入平台</a>
+    </div>
+  </header>
+  <main class="max-w-5xl mx-auto px-6 py-20">
+    <div class="rounded-2xl border border-[#1E3A5F] bg-[#0D1B2E]/90 p-10 shadow-[0_0_40px_rgba(0,102,255,0.12)]">
+      <p class="text-xs uppercase tracking-[0.24em] text-[#00D4FF]">SpectraAI Console</p>
+      <h1 class="mt-3 text-4xl font-bold">谱智安 AI 核素智能识别平台</h1>
+      <p class="mt-4 max-w-2xl leading-7 text-[#7A9CC6]">实时监测、谱图分析、核素识别、报告导出等平台能力已接入本地 Streamlit 工作台。</p>
+      <div class="mt-8 flex items-center gap-2 text-sm">
+        <span class="h-2.5 w-2.5 rounded-full bg-[#00E676] shadow-[0_0_8px_rgba(0,230,118,0.8)]"></span>
+        <span class="text-[#00E676]">本地服务入口</span>
+        <span class="font-mono text-[#7A9CC6]">http://127.0.0.1:8507/</span>
+      </div>
+      <a href="http://127.0.0.1:8507/" class="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#00D4FF] to-[#0066FF] px-6 py-3 font-semibold text-white shadow-[0_0_24px_rgba(0,212,255,0.4)]">打开本地平台</a>
+      <p class="mt-6 text-xs leading-5 text-[#7A9CC6]">页面数据均为演示示例，非真实测量结果。若工作台未启动，请先运行本地 Streamlit 服务。</p>
+    </div>
+  </main>
+</body>
+</html>
