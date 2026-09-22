@@ -1,0 +1,625 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN"><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="assets/tailwind.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"text-secondary":"#7A9CC6","inverse-surface":"#d7e3fc","tertiary-container":"#00e073","on-tertiary-fixed":"#00210b","on-primary-container":"#00586b","surface-container":"#142032","surface-container-low":"#101c2e","on-error-container":"#ffdad6","status-success":"#00E676","inverse-primary":"#00677e","error-container":"#93000a","secondary":"#b3c5ff","border-subtle":"#1E3A5F","tertiary":"#3efe8a","status-warning":"#FFB300","tertiary-fixed-dim":"#00e475","surface-panel":"#112240","surface-container-lowest":"#030e20","bg-canvas":"#0A1628","on-primary-fixed-variant":"#004e5f","text-primary":"#E6F1FF","surface-bright":"#2e394d","background":"#071325","primary-container":"#00d4ff","surface-tint":"#3cd7ff","surface-variant":"#2a3548","secondary-container":"#0266ff","surface-container-high":"#1f2a3d","surface":"#071325","on-secondary-fixed-variant":"#003fa4","on-tertiary-fixed-variant":"#005226","on-surface-variant":"#bbc9cf","isotope-co60":"#00E676","on-secondary":"#002b75","on-surface":"#d7e3fc","primary-fixed":"#b4ebff","on-primary-fixed":"#001f27","on-error":"#690005","secondary-fixed-dim":"#b3c5ff","border-highlight":"#24466E","surface-dim":"#071325","inverse-on-surface":"#253144","on-background":"#d7e3fc","surface-hover":"#1A3358","bg-elevated":"#0D1B2A","outline-variant":"#3c494e","secondary-fixed":"#dae1ff","on-tertiary":"#003918","outline":"#859398","on-tertiary-container":"#005d2c","on-secondary-fixed":"#001849","primary":"#a8e8ff","tertiary-fixed":"#62ff96","isotope-k40":"#7C4DFF","on-secondary-container":"#f9f7ff","isotope-cs137":"#FFB300","error":"#ffb4ab","surface-card":"#162A45","surface-container-highest":"#2a3548","primary-fixed-dim":"#3cd7ff","on-primary":"#003642"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xs":"0.25rem",gutter:"1.25rem","space-xl":"2rem","space-3xl":"4.5rem","space-2xl":"3rem","space-sm":"0.5rem","gutter-desktop":"1.5rem","margin-desktop":"2.5rem","space-lg":"1.5rem","space-md":"1rem",margin:"1.5rem"},fontFamily:{"mono-data-md":["SFMono-Regular","Consolas","Menlo","monospace"],"mono-data-sm":["SFMono-Regular","Consolas","Menlo","monospace"],"headline-md":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"body-md":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"display-hero":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"headline-sm":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"body-lg":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"body-sm":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"label-caps":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"mono-data-lg":["SFMono-Regular","Consolas","Menlo","monospace"],"display-hero-mobile":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"],"headline-lg":["-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif"]},fontSize:{"mono-data-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"mono-data-sm":["12px",{lineHeight:"16px",fontWeight:"500"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"display-hero":["48px",{lineHeight:"58px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-sm":["16px",{lineHeight:"24px",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}],"mono-data-lg":["18px",{lineHeight:"24px",fontWeight:"600"}],"display-hero-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"800"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"700"}]}}}}</script><link rel="stylesheet" href="assets/material-symbols.css"/></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(3,14,32,0.6)]"><div class="h-16 max-w-[1440px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><div class="relative flex items-center justify-center"><img alt="SpectraAI" class="w-8 h-8 rounded-full object-cover shadow-[0_0_12px_rgba(0,212,255,0.4)]" src="assets/logo.svg"><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-status-success shadow-[0_0_6px_rgba(0,230,118,0.8)]"></span></div><div class="flex flex-col"><div class="flex items-baseline gap-space-xs"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">谱智安</span><span class="font-mono-data-md text-mono-data-md text-primary-container tracking-wider font-semibold">SpectraAI</span></div><span class="font-label-caps text-label-caps text-text-secondary tracking-widest">AI · 核素识别 · γ能谱分析</span></div></div><nav class="hidden xl:flex items-center gap-space-xl" data-active-classes="text-primary-container font-semibold"><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md py-space-xs" data-path="home" href="index.html">首页</a><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md py-space-xs" data-path="features" href="product-features.html">产品功能</a><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md py-space-xs" data-path="technology" href="core-technology.html">核心技术</a><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md py-space-xs" data-path="scenarios" href="application-scenarios.html">应用场景</a><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md py-space-xs" data-path="solutions" href="solutions.html">解决方案</a><a aria-current="page" class="transition-colors py-space-xs text-primary-container font-semibold" data-path="about" href="about.html">关于我们</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low shadow-[0_0_10px_rgba(0,230,118,0.08)]"><span class="w-2 h-2 rounded-full bg-status-success animate-pulse shadow-[0_0_8px_rgba(0,230,118,0.9)]"></span><span class="font-mono-data-sm text-mono-data-sm text-status-success tracking-tight">模型引擎在线 v2.4-RT</span></div><div class="flex items-center px-space-sm py-1 rounded bg-surface-panel text-on-surface-variant hover:text-text-primary hover:bg-surface-hover cursor-pointer transition-colors"><span class="font-mono-data-sm text-mono-data-sm font-semibold">CN</span></div><a class="group relative inline-flex items-center gap-space-xs px-space-md py-2 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-background font-headline-sm text-headline-sm font-bold shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_28px_rgba(0,212,255,0.55)] transition-all duration-200 hover:brightness-110" data-path="console" href="platform.html"><span class="font-body-md text-body-md font-semibold text-background">进入平台</span><span class="material-symbols-outlined text-[16px] text-background transition-transform duration-200 group-hover:translate-x-0.5">arrow_forward</span></a></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden py-space-3xl px-margin bg-background">
+<!-- Ambient Radial Accents -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-primary-container/15 via-secondary-container/10 to-transparent blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute top-1/4 right-[-100px] w-[380px] h-[380px] bg-isotope-co60/5 blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute bottom-[-50px] left-[-80px] w-[340px] h-[340px] bg-isotope-k40/10 blur-3xl pointer-events-none rounded-full"></div>
+<div class="relative max-w-[1440px] mx-auto flex flex-col items-center text-center">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container shadow-[0_0_16px_rgba(0,212,255,0.18)] mb-space-lg">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(0,212,255,0.9)] animate-pulse"></span>
+<span class="font-mono-data-sm text-mono-data-sm text-primary-container tracking-wider uppercase">ABOUT SPECTRAAI · 懂核安全，更懂AI应用</span>
+</div>
+<!-- Main Slogan -->
+<h1 class="font-display-hero text-display-hero text-text-primary max-w-4xl tracking-tight mb-space-md">
+        用 <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-primary to-secondary-container">AI 赋能核安全</span>，让每一份能谱都有答案
+      </h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-text-secondary max-w-3xl leading-relaxed mb-space-xl">
+        我们不是脱离工业场景的算法极客，而是立足核安全第一线的工程青年。谱智安诞生于南华大学等高校交叉科研力量，致力于打破国外昂贵分析软件与硬件垄断，以自主算法筑牢国家核安保与低碳发展技术底座。
+      </p>
+<!-- Key Stat Ribbon -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md w-full max-w-4xl p-space-md rounded-xl bg-surface-panel shadow-[0_4px_24px_rgba(3,14,32,0.8)]">
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-mono-data-lg text-mono-data-lg text-primary-container font-bold">4 所</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">985/特色高校跨界融合</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-mono-data-lg text-mono-data-lg text-status-success font-bold">&lt; 300 ms</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">弱计数实时全谱反演</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-mono-data-lg text-mono-data-lg text-isotope-cs137 font-bold">100%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">自主可控 2DCNN-BiLSTM</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-sm bg-surface-container-low rounded-lg">
+<span class="font-mono-data-lg text-mono-data-lg text-secondary font-bold">IAEA / Geant4</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">严苛物理底座标定</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Positioning Callout -->
+<section class="w-full py-space-xl px-margin bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto">
+<div class="p-space-xl rounded-xl bg-surface-panel shadow-[0_0_24px_rgba(0,212,255,0.06)] flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col gap-space-sm max-w-2xl">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[22px]">verified_user</span>
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">团队特质 · 复合壁垒</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+            “安全工程 + AI + 核辐射监测”复合战队
+          </h2>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+            比计算机专业更懂核安全边界与放射物理机理，比传统核技术团队更擅长深度学习架构工程落地。我们扎根工业一线，将复杂蒙特卡洛仿真与前沿注意机制融合，杜绝模型“黑盒幻觉”。
+          </p>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<div class="flex flex-col items-start p-space-md rounded-lg bg-surface-container">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">指导教师把关</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold mt-1">佟凯文 老师</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">全流程核安全规范与合规认证监督</span>
+</div>
+<div class="w-px h-16 bg-surface-hover hidden sm:block"></div>
+<div class="flex flex-col items-start p-space-md rounded-lg bg-surface-container">
+<span class="font-mono-data-sm text-mono-data-sm text-status-success">工程信条</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold mt-1">安全伦理底线</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">宁提示“无法可靠判断”，绝不做虚假预测</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Team Grid -->
+<section class="w-full py-space-3xl px-margin bg-background">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="w-1.5 h-3.5 rounded-full bg-primary-container"></span>
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase">CORE CONTRIBUTORS</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+            核心团队与跨学科矩阵
+          </h2>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary max-w-md">
+          严格按照项目计划书第13页研发序列编组，多维互补，保障从物理机理、网络架构、渲染交互到产业落地的敏捷闭环。
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- 1. 兰奥 -->
+<div class="group relative flex flex-col p-space-lg rounded-xl bg-surface-panel shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-surface-card hover:shadow-[0_8px_32px_rgba(0,212,255,0.12)]">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary-container font-headline-sm text-headline-sm font-bold shadow-[0_0_12px_rgba(0,212,255,0.3)]">
+              兰
+            </div>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-container/10 text-primary-container font-mono-data-sm text-mono-data-sm font-semibold">
+              项目负责人
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-1">兰奥</h3>
+<div class="flex items-center gap-1.5 text-text-secondary font-body-sm text-body-sm mb-space-md">
+<span class="material-symbols-outlined text-[16px] text-primary">school</span>
+<span class="">南华大学 · 资源环境与安全工程学院</span>
+</div>
+<div class="mb-space-md p-space-sm rounded bg-surface-container-low">
+<span class="font-mono-data-sm text-mono-data-sm text-primary">安全工程（核安全方向）</span>
+</div>
+<div class="flex flex-col gap-1.5 mt-auto pt-space-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">职责分工</span>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              负责核安全专业知识与技术方案总设计，主导γ能谱特征峰识别模型、物理交互机理反演与安全底线边界标准的建立。
+            </p>
+</div>
+</div>
+<!-- 2. 陈俊言 -->
+<div class="group relative flex flex-col p-space-lg rounded-xl bg-surface-panel shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-surface-card hover:shadow-[0_8px_32px_rgba(0,230,118,0.12)]">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-status-success font-headline-sm text-headline-sm font-bold shadow-[0_0_12px_rgba(0,230,118,0.3)]">
+              陈
+            </div>
+<span class="px-space-sm py-0.5 rounded-full bg-status-success/10 text-status-success font-mono-data-sm text-mono-data-sm font-semibold">
+              算法研发负责人
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-1">陈俊言</h3>
+<div class="flex items-center gap-1.5 text-text-secondary font-body-sm text-body-sm mb-space-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary">school</span>
+<span class="">湖南大学 · 计算机学院</span>
+</div>
+<div class="mb-space-md p-space-sm rounded bg-surface-container-low">
+<span class="font-mono-data-sm text-mono-data-sm text-status-success">计算机科学与技术</span>
+</div>
+<div class="flex flex-col gap-1.5 mt-auto pt-space-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">职责分工</span>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              负责 2DCNN-BiLSTM 混合时空神经网络构建与训练代码落地，攻坚超弱计数、本底漂移下的多峰解叠与实时推理优化。
+            </p>
+</div>
+</div>
+<!-- 3. 胡量 -->
+<div class="group relative flex flex-col p-space-lg rounded-xl bg-surface-panel shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-surface-card hover:shadow-[0_8px_32px_rgba(124,77,255,0.12)]">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-[#A78BFA] font-headline-sm text-headline-sm font-bold shadow-[0_0_12px_rgba(124,77,255,0.3)]">
+              胡
+            </div>
+<span class="px-space-sm py-0.5 rounded-full bg-isotope-k40/10 text-[#A78BFA] font-mono-data-sm text-mono-data-sm font-semibold">
+              工程与交互负责人
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-1">胡量</h3>
+<div class="flex items-center gap-1.5 text-text-secondary font-body-sm text-body-sm mb-space-md">
+<span class="material-symbols-outlined text-[16px] text-[#A78BFA]">school</span>
+<span class="">东华大学 · 信息与智能科学学院</span>
+</div>
+<div class="mb-space-md p-space-sm rounded bg-surface-container-low">
+<span class="font-mono-data-sm text-mono-data-sm text-[#A78BFA]">电子信息类</span>
+</div>
+<div class="flex flex-col gap-1.5 mt-auto pt-space-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">职责分工</span>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              负责前端交互与工作台架构，实现超大数据通道动态可视化与 Grad-CAM 可解释性特征峰热力图实时渲染。
+            </p>
+</div>
+</div>
+<!-- 4. 欧和 -->
+<div class="group relative flex flex-col p-space-lg rounded-xl bg-surface-panel shadow-[0_4px_16px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-surface-card hover:shadow-[0_8px_32px_rgba(255,179,0,0.12)]">
+<div class="flex items-start justify-between mb-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-isotope-cs137 font-headline-sm text-headline-sm font-bold shadow-[0_0_12px_rgba(255,179,0,0.3)]">
+              欧
+            </div>
+<span class="px-space-sm py-0.5 rounded-full bg-isotope-cs137/10 text-isotope-cs137 font-mono-data-sm text-mono-data-sm font-semibold">
+              商业化与市场负责人
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-1">欧和</h3>
+<div class="flex items-center gap-1.5 text-text-secondary font-body-sm text-body-sm mb-space-md">
+<span class="material-symbols-outlined text-[16px] text-isotope-cs137">school</span>
+<span class="">中国人民大学 · 中法学院</span>
+</div>
+<div class="mb-space-md p-space-sm rounded bg-surface-container-low">
+<span class="font-mono-data-sm text-mono-data-sm text-isotope-cs137">金融学</span>
+</div>
+<div class="flex flex-col gap-1.5 mt-auto pt-space-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">职责分工</span>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              负责核技术应用行业调研、商业可行性测算、第三方检测机构与海关核验真实客户场景需求痛点挖掘与价值对齐。
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Matrix & Open Data Standards -->
+<section class="w-full py-space-3xl px-margin bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase">ACADEMIC ECOSYSTEM</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight mt-space-xs">
+          4所高校交叉学科网络 · 权威科研数据底座
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary mt-space-xs">
+          坚持工程创新与权威物理规律同频共振，汇集国内名校尖端学科优势，直连国际核物理数据库标准
+        </p>
+</div>
+<!-- Campus Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+<div class="p-space-lg rounded-xl bg-surface-panel shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">南华大学</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">science</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-primary">核科学与核安全特色底蕴</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-2">
+            国家核应急宣传和培训基地协同支撑，提供现场放射源标定与安全边界参数校准。
+          </p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-panel shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">湖南大学</span>
+<span class="material-symbols-outlined text-status-success text-[20px]">memory</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-status-success">超算中心与计算机优势</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-2">
+            依托国家超级计算长沙中心算力集群，执行高维蒙特卡洛能谱粒子轨迹迁移训练。
+          </p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-panel shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">东华大学</span>
+<span class="material-symbols-outlined text-[#A78BFA] text-[20px]">hub</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-[#A78BFA]">智能信息与交互工程</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-2">
+            专注于分布式边缘嵌入式微前端系统与复杂科学多维光谱图景实时呈现优化。
+          </p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-panel shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">中国人民大学</span>
+<span class="material-symbols-outlined text-isotope-cs137 text-[20px]">monitoring</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-isotope-cs137">产业金融与宏观战略</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-2">
+            为核安保关键装备国产化替代、中小检测机构降本增效提供经济与产业模型验证。
+          </p>
+</div>
+</div>
+<!-- Verified Data Benchmarks Banner -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md p-space-lg rounded-xl bg-surface-container">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-panel flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-[18px]">database</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary font-semibold">IAEA IDB 规范</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              严格遵循国际原子能机构核事件与能谱数据库标准，支持全量标定同位素指纹反查。
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-panel flex items-center justify-center text-status-success shrink-0">
+<span class="material-symbols-outlined text-[18px]">view_in_ar</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary font-semibold">SFCOMPO-2.0 验证</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              引入 OECD/NEA 乏燃料实验反应堆同位素成分测量数据库，攻坚深层复杂复合源难题。
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-panel flex items-center justify-center text-[#A78BFA] shrink-0">
+<span class="material-symbols-outlined text-[18px]">grain</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary font-semibold">Geant4 蒙特卡洛链</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              高保真模拟高纯锗 (HPGe)、NaI(Tl)、LaBr3 晶体探测器多散射物理轨迹，训练集更逼真。
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Triple Core Value Pillars (Chapters 8 & 9) -->
+<section class="w-full py-space-3xl px-margin bg-background">
+<div class="max-w-[1440px] mx-auto">
+<div class="max-w-2xl mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase">VALUE ARCHITECTURE</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight mt-space-xs">
+          三大核心价值体系 · 秉持青年科技报国初心
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary mt-space-xs">
+          严格践行计划书第八、九章社会效益、教育实效与国家产业安全支撑使命。
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-xl">
+<!-- Value 1 -->
+<div class="flex flex-col p-space-xl rounded-xl bg-surface-panel shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary-container mb-space-md shadow-[0_0_16px_rgba(0,212,255,0.25)]">
+<span class="material-symbols-outlined text-[26px]">school</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-primary mb-1">VALUE 01 · 培育实效</span>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-space-sm">
+            把课堂知识转化为工程重器
+          </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-space-md">
+            打破传统核工程与人工智能“两张皮”现状。高校学子将微观放射物理、康普顿散射理论与深度神经网络算法交叉贯通，把书本方程式淬炼为一线可直接调用的算法引擎。
+          </p>
+<div class="mt-auto p-space-md rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-status-success font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+              立德树人与核安全伦理
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+              在安全攸关场景中恪守绝对谨慎底线，宁肯模型提示“信号置信度不足”，绝不给出不可靠的幻觉推测。
+            </span>
+</div>
+</div>
+<!-- Value 2 -->
+<div class="flex flex-col p-space-xl rounded-xl bg-surface-panel shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-status-success mb-space-md shadow-[0_0_16px_rgba(0,230,118,0.25)]">
+<span class="material-symbols-outlined text-[26px]">shield</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-status-success mb-1">VALUE 02 · 社会效能</span>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-space-sm">
+            大幅降低国家核安保技术门槛
+          </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-space-md">
+            传统进口分析软件高昂且维护受限，基层环境监测与中小涉核机构面临“买得起硬件、算不起能谱”困境。谱智安轻量化部署可直接赋能存量探测器，盘活价值数十亿元的基层监控网络。
+          </p>
+<div class="mt-auto p-space-md rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+              守护国门与应急排查
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+              赋能海关辐射通道门 (RPM) 秒级排查非法核走私，工业探伤放射源实时跟踪与突发核事故快速溯源。
+            </span>
+</div>
+</div>
+<!-- Value 3 -->
+<div class="flex flex-col p-space-xl rounded-xl bg-surface-panel shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-[#A78BFA] mb-space-md shadow-[0_0_16px_rgba(124,77,255,0.25)]">
+<span class="material-symbols-outlined text-[26px]">groups</span>
+</div>
+<span class="font-mono-data-sm text-mono-data-sm text-[#A78BFA] mb-1">VALUE 03 · 产业带动</span>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-space-sm">
+            国家紧缺复合型人才孵化与就业
+          </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-space-md">
+            “AI+核技术”属于我国关键产业紧缺交叉方向。项目通过产学研项目持续培育兼具物理学底蕴与现代计算机算法的青年工科人才，以科研成果催生高附加值技术服务岗位。
+          </p>
+<div class="mt-auto p-space-md rounded bg-surface-container-low flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-isotope-cs137 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">work</span>
+              多层级岗位直通
+            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+              直接带动辐射能谱标注专家、边缘算法优化工程师、现场核测技术支持与软硬件联调工程师培育。
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Highlight Banner (Lab & Field Research) -->
+<section class="w-full py-space-xl px-margin bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="relative overflow-hidden rounded-xl h-64 bg-surface-panel shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-end p-space-lg">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="High-tech nuclear physics and radiation detection laboratory at night. A young Asian nuclear engineering student monitors multi-channel gamma spectrometers with glowing blue and green phosphor screens. Cobalt-60 and Cesium-137 calibration equipment sits under subdued volumetric laboratory lighting with clean blue sci-fi tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDxnKKKujtz_sYZva51085-drSmW1w-iqnL3gOJhA_eG4g1sk2Aakp-ZYgVwlbRSS0uG6xP28aaU8DF-iRgeefmXur3Nsbp3FrcFgC0pg8W48F-XTAdIZAhsLrsCgxXs-IGGq6HOmVlHxDuVSocQCkGW5_RcJKaABg7jTOvoRM_3hdarougs2Ei-dT4Xi24Ui2OgEdDJ8YEFwzumgSjRZdIVdz2L2P-ddXdMyo1drPTy5HxvGRd6Qu')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-mono-data-sm text-mono-data-sm text-primary-container font-semibold">LAB EXPERIMENT · 算法仿真现场</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold mt-1">南华大学高精度放射物理测量台</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">使用 NaI(Tl) 与 HPGe 实测谱比对，反复锤炼 2DCNN-BiLSTM 在弱计数下的鲁棒性表现。</p>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-xl h-64 bg-surface-panel shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex items-end p-space-lg">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern maritime cargo terminal security checkpoint at dusk. An industrial radiation portal monitor with blue and cyan diagnostic LED status lights inspects heavy shipping containers. Cold blue atmospheric illumination, scientific precision, professional radiation safety instrumentation backdrop." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2YfsIrheANv-HLzMDPBdd7rfBZqUdrFgl6dDV1ReowEjsi5Q4jRHIIcelGn7KsQiD5azbp6ptD0DTxxYZwvef9Im8Pk3i0q5Om1Og6ATiPXKZ3Cr0RLee8zs7FwhEe9uBjqQ_vdEufzxOE_UAhaTw2-Wyr-1QSdZGzYCaaMXA7pQg_eaEsHPl_kXwn3Cfhmh2o0YkYf8pgwOZ_igHlM0qarSwLfpyu1sQDah3U8qT_PUYJ_ygWJHi')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-mono-data-sm text-mono-data-sm text-status-success font-semibold">INDUSTRIAL SAFETY · 口岸与一线应用</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold mt-1">复杂工业场景无感核查</span>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">解决车辆快速通过时采集时间短、本底康普顿散射强烈导致的误报率高难题。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 12-Month Milestone Roadmap (Plan Page 14) -->
+<section class="w-full py-space-3xl px-margin bg-background">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="w-1.5 h-3.5 rounded-full bg-primary-container"></span>
+<span class="font-label-caps text-label-caps text-primary-container tracking-wider uppercase">DEVELOPMENT TIMELINE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+            12 个月关键攻关里程碑
+          </h2>
+</div>
+<div class="inline-flex items-center gap-2 px-space-md py-1 rounded-full bg-surface-container">
+<span class="w-2 h-2 rounded-full bg-status-success"></span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">严格依据申报商业计划书推进</span>
+</div>
+</div>
+<!-- Roadmap Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg relative">
+<!-- Phase 1 -->
+<div class="relative flex flex-col p-space-xl rounded-xl bg-surface-panel shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono-data-lg text-mono-data-lg text-primary font-bold">PHASE 01</span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/10 font-mono-data-sm text-mono-data-sm text-primary-container font-semibold">第 1 - 3 月</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-space-sm">
+            技术验证与 MVP 跑通
+          </h3>
+<ul class="flex flex-col gap-space-sm mb-space-lg font-body-sm text-body-sm text-text-secondary">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="">搭建 Geant4 能谱数据集管道与清洗流水线</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="">完成 2DCNN-BiLSTM 核心神经网络代码基线建立</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="">支持 Cs-137、Co-60、K-40 等 5-8 种核心核素现场演示与高亮</span>
+</li>
+</ul>
+<div class="mt-auto pt-space-md border-t border-border-subtle/40 flex items-center justify-between">
+<span class="font-mono-data-sm text-mono-data-sm text-status-success flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">task_alt</span> 已达成
+            </span>
+<span class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">准确率 &gt; 97.4%</span>
+</div>
+</div>
+<!-- Phase 2 -->
+<div class="relative flex flex-col p-space-xl rounded-xl bg-surface-card shadow-[0_8px_32px_rgba(0,212,255,0.08)]">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono-data-lg text-mono-data-lg text-primary-container font-bold">PHASE 02</span>
+<span class="px-2.5 py-0.5 rounded-full bg-status-success/10 font-mono-data-sm text-mono-data-sm text-status-success font-semibold">第 4 - 6 月</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-space-sm">
+            原型系统搭建与可解释性
+          </h3>
+<ul class="flex flex-col gap-space-sm mb-space-lg font-body-sm text-body-sm text-text-secondary">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-status-success text-[18px] shrink-0 mt-0.5">pending</span>
+<span class="">引入注意力机制 Grad-CAM 能谱热力图渲染</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-status-success text-[18px] shrink-0 mt-0.5">pending</span>
+<span class="">识别库扩充至 15 种以上工业与医用关键放射性核素</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-status-success text-[18px] shrink-0 mt-0.5">pending</span>
+<span class="">完成软硬件协议适配层（支持 ANSI N42.42 格式导入）</span>
+</li>
+</ul>
+<div class="mt-auto pt-space-md border-t border-border-subtle/40 flex items-center justify-between">
+<span class="font-mono-data-sm text-mono-data-sm text-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] animate-spin">sync</span> 攻坚推进中
+            </span>
+<span class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">特征峰可解释性落地</span>
+</div>
+</div>
+<!-- Phase 3 -->
+<div class="relative flex flex-col p-space-xl rounded-xl bg-surface-panel shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-mono-data-lg text-mono-data-lg text-secondary font-bold">PHASE 03</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container font-mono-data-sm text-mono-data-sm text-text-secondary font-semibold">第 7 - 12 月</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-bold mb-space-sm">
+            现场联调与产业战略合作
+          </h3>
+<ul class="flex flex-col gap-space-sm mb-space-lg font-body-sm text-body-sm text-text-secondary">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-text-secondary text-[18px] shrink-0 mt-0.5">radio_button_unchecked</span>
+<span class="">对接真实环境探测器数据，进行低信噪比实测验证</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-text-secondary text-[18px] shrink-0 mt-0.5">radio_button_unchecked</span>
+<span class="">申报国家级大创项目重点立项，申请软件著作权与发明专利</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-text-secondary text-[18px] shrink-0 mt-0.5">radio_button_unchecked</span>
+<span class="">与辐射仪器制造厂商签订战略合作备忘录，完成商用试用转化</span>
+</li>
+</ul>
+<div class="mt-auto pt-space-md border-t border-border-subtle/40 flex items-center justify-between">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 计划排期
+            </span>
+<span class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">工程量产级认证</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner Section -->
+<section class="w-full py-space-3xl px-margin bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto">
+<div class="relative p-space-2xl rounded-2xl bg-gradient-to-r from-surface-panel via-surface-card to-surface-panel shadow-[0_8px_32px_rgba(0,212,255,0.12)] overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-space-xl text-center lg:text-left">
+<!-- Ambient decorative shapes -->
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-primary-container/10 blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute -left-20 -bottom-20 w-80 h-80 bg-secondary-container/10 blur-3xl pointer-events-none rounded-full"></div>
+<div class="relative z-10 max-w-2xl flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-1.5 self-center lg:self-start px-3 py-1 rounded-full bg-primary-container/10">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-mono-data-sm text-mono-data-sm text-primary-container font-semibold">JOIN SPECTRAAI RESEARCH NETWORK</span>
+</div>
+<h2 class="font-display-hero-mobile text-display-hero-mobile md:font-headline-lg md:text-headline-lg text-text-primary font-bold tracking-tight">
+            携手谱智安，共同推进核安全数智化进程
+          </h2>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+            无论您是核仪器制造商、科研院所放射物理团队，还是环境辐射监测机构，我们期待与您共享 AI 模型红利，加速关键核心技术自立自强。
+          </p>
+</div>
+<div class="relative z-10 flex flex-wrap items-center justify-center gap-space-md shrink-0">
+<button class="px-space-xl py-3 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-background font-headline-sm text-headline-sm font-bold shadow-[0_0_24px_rgba(0,212,255,0.35)] hover:shadow-[0_0_32px_rgba(0,212,255,0.6)] transition-all duration-200 hover:brightness-110 flex items-center gap-2" id="btn-collab">
+<span class="">联络科研合作</span>
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+</button>
+<button class="px-space-xl py-3 rounded-full bg-surface-container hover:bg-surface-hover text-text-primary font-headline-sm text-headline-sm font-semibold transition-all duration-200 flex items-center gap-2" id="btn-join">
+<span class="">加入研究计划</span>
+<span class="material-symbols-outlined text-[18px]">group_add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Modal for Collaboration / Join -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="contact-modal">
+<div class="relative w-full max-w-lg p-space-xl rounded-xl bg-surface-panel shadow-[0_16px_48px_rgba(0,0,0,0.8)] mx-margin transform scale-95 transition-transform duration-300" id="modal-container">
+<div class="flex items-center justify-between pb-space-md border-b border-border-subtle/50 mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[20px]">mark_email_read</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">科研与产业对接通道</span>
+</div>
+<button class="text-text-secondary hover:text-text-primary transition-colors" id="modal-close">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mb-space-md">
+        请填写您的合作意向或技术交流需求，团队负责人将在 24 小时内与您联络并提供高保真技术白皮书。
+      </p>
+<form class="flex flex-col gap-space-md" id="collab-form" onsubmit="event.preventDefault(); submitCollab();">
+<div class="flex flex-col gap-1">
+<label class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">联络人姓名 / 机构名称</label>
+<input class="px-space-md py-2 rounded bg-surface-container-low text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="如：南华大学核科学实验室 / 张工" required="" type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">电子邮箱 / 微信手机号</label>
+<input class="px-space-md py-2 rounded bg-surface-container-low text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="name@institution.edu.cn" required="" type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-mono-data-sm text-mono-data-sm text-on-surface-variant">合作诉求分类</label>
+<select class="px-space-md py-2 rounded bg-surface-container-low text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option>实测能谱数据集比对验证</option>
+<option>辐射仪器软硬件联调与固件集成</option>
+<option>大创与青年科研联合攻关</option>
+<option>商业化试用与行业检测需求对接</option>
+</select>
+</div>
+<button class="w-full mt-space-sm py-2.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-background font-headline-sm text-headline-sm font-bold shadow-[0_0_20px_rgba(0,212,255,0.3)] hover:brightness-110 transition-all" type="submit">
+          提交并建立联系
+        </button>
+</form>
+<div class="hidden mt-space-md p-space-md rounded bg-status-success/10 text-status-success font-body-sm text-body-sm text-center" id="submit-success">
+        感谢您的关注！信息已安全传递至核心团队，我们将尽快与您取得联系。
+      </div>
+</div>
+</div>
+<script>
+    const modal = document.getElementById('contact-modal');
+    const modalContainer = document.getElementById('modal-container');
+    const btnCollab = document.getElementById('btn-collab');
+    const btnJoin = document.getElementById('btn-join');
+    const modalClose = document.getElementById('modal-close');
+    const collabForm = document.getElementById('collab-form');
+    const submitSuccess = document.getElementById('submit-success');
+
+    function openModal() {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalContainer.classList.remove('scale-95');
+      modalContainer.classList.add('scale-100');
+    }
+
+    function closeModal() {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContainer.classList.add('scale-95');
+      modalContainer.classList.remove('scale-100');
+    }
+
+    if (btnCollab) btnCollab.addEventListener('click', openModal);
+    if (btnJoin) btnJoin.addEventListener('click', openModal);
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    function submitCollab() {
+      if (collabForm && submitSuccess) {
+        collabForm.classList.add('hidden');
+        submitSuccess.classList.remove('hidden');
+        setTimeout(() => {
+          closeModal();
+          collabForm.reset();
+          collabForm.classList.remove('hidden');
+          submitSuccess.classList.add('hidden');
+        }, 2200);
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest"><div class="max-w-[1440px] mx-auto px-margin py-space-3xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-2xl mb-space-2xl"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-full bg-surface-panel flex items-center justify-center shadow-[0_0_10px_rgba(0,212,255,0.3)]"><span class="material-symbols-outlined text-[18px] text-primary-container">radar</span></div><span class="font-headline-md text-headline-md text-text-primary font-bold tracking-tight">谱智安 SpectraAI</span></div><p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">谱智安致力于将前沿深度神经网络与微观放射物理深度融合。专为核物理实验室、辐射环境监测、口岸核安保及核素鉴别研发的超低本底实时智能能谱解析系统，提供纳秒级核素指纹检索与活度定量计算支持。</p><div class="flex flex-col gap-space-xs mt-space-sm"><span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider">实时辐射核素分类与光谱指纹标定</span><div class="flex flex-wrap gap-space-xs items-center"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[rgba(255,179,0,0.08)]"><span class="w-1.5 h-1.5 rounded-full bg-isotope-cs137 shadow-[0_0_6px_rgba(255,179,0,0.8)]"></span><span class="font-mono-data-sm text-mono-data-sm text-isotope-cs137 font-semibold">Cs-137 (661.7 keV)</span></div><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[rgba(0,230,118,0.08)]"><span class="w-1.5 h-1.5 rounded-full bg-isotope-co60 shadow-[0_0_6px_rgba(0,230,118,0.8)]"></span><span class="font-mono-data-sm text-mono-data-sm text-isotope-co60 font-semibold">Co-60 (1173.2/1332.5)</span></div><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[rgba(124,77,255,0.08)]"><span class="w-1.5 h-1.5 rounded-full bg-isotope-k40 shadow-[0_0_6px_rgba(124,77,255,0.8)]"></span><span class="font-mono-data-sm text-mono-data-sm text-[#A78BFA] font-semibold">K-40 (1460.8 keV)</span></div></div></div></div><div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-1 h-3.5 rounded-full bg-primary-container"></span><span class="font-headline-sm text-headline-sm text-text-primary font-semibold">核心矩阵</span></div><ul class="flex flex-col gap-space-sm"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">DeepGamma 物理增强神经网络</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">亚通道能量自动非线性稳谱</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">超弱信噪比多峰解叠解析引擎</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">混合放射性活度蒙特卡洛反演</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">动态环境康普顿散射本底剥离</li></ul></div><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-1 h-3.5 rounded-full bg-secondary-container"></span><span class="font-headline-sm text-headline-sm text-text-primary font-semibold">方案体系</span></div><ul class="flex flex-col gap-space-sm"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">大型口岸辐射通道门 (RPM) 监测</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">核设施周界与退役工程环境监测</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">移动式无人机/车载放射性巡测</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">同位素医药研发与工业探伤溯源</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">地质铀矿勘探与高精度光谱建库</li></ul></div><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><span class="w-1 h-3.5 rounded-full bg-status-success"></span><span class="font-headline-sm text-headline-sm text-text-primary font-semibold">合规与架构标准</span></div><ul class="flex flex-col gap-space-sm"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">ANSI N42.42 仪器数据交换标准</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">IEC 62327 辐射探测性能规范</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">国产密码商用认证算法体系</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">高纯锗(HPGe) / NaI(Tl) / LaBr3 支持</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-text-primary cursor-pointer transition-colors">边缘协同端侧实时推理套件</li></ul></div></div></div><div class="pt-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant"><div class="flex flex-wrap items-center gap-space-md"><span class="font-body-sm text-body-sm text-text-secondary">© 2025 谱智安 (SpectraAI) 科技有限公司。保留所有权利。</span><div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded bg-surface-panel"><span class="material-symbols-outlined text-[14px] text-primary-container">verified</span><span class="font-mono-data-sm text-mono-data-sm text-text-secondary">IAEA Data Format Standard Compliant</span></div></div><div class="flex items-center gap-space-lg font-body-sm text-body-sm text-text-secondary"><a class="hover:text-primary-container transition-colors" href="#">隐私政策</a><a class="hover:text-primary-container transition-colors" href="#">服务协议</a><a class="hover:text-primary-container transition-colors" href="#">安全白皮书</a><a class="hover:text-primary-container transition-colors" href="#">京ICP备20248892号-1</a></div></div></div></footer>
+
+</body></html>
