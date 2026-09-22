@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>谱智安 - AI 核素智能识别平台</title><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="assets/tailwind.js"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container": "#142032", "outline-variant": "#3c494e", "border-subtle": "#1E3A5F", "isotope-k40": "#7C4DFF", "error": "#ffb4ab", "inverse-on-surface": "#253144", "surface-container-low": "#101c2e", "primary-fixed": "#b4ebff", "on-primary-fixed-variant": "#004e5f", "primary": "#a8e8ff", "surface-container-lowest": "#030e20", "primary-fixed-dim": "#3cd7ff", "secondary-fixed-dim": "#b3c5ff", "inverse-primary": "#00677e", "inverse-surface": "#d7e3fc", "surface-hover": "#1A3358", "surface-bright": "#2e394d", "secondary": "#b3c5ff", "tertiary-container": "#00e073", "on-primary": "#003642", "on-error": "#690005", "error-container": "#93000a", "on-background": "#d7e3fc", "tertiary-fixed-dim": "#00e475", "on-primary-fixed": "#001f27", "isotope-cs137": "#FFB300", "status-success": "#00E676", "text-primary": "#E6F1FF", "on-tertiary-fixed-variant": "#005226", "isotope-co60": "#00E676", "surface-container-high": "#1f2a3d", "on-secondary": "#002b75", "surface-dim": "#071325", "tertiary-fixed": "#62ff96", "border-highlight": "#24466E", "surface-container-highest": "#2a3548", "on-primary-container": "#00586b", "surface-tint": "#3cd7ff", "on-error-container": "#ffdad6", "on-surface": "#d7e3fc", "primary-container": "#00d4ff", "bg-elevated": "#0D1B2A", "surface": "#071325", "surface-panel": "#112240", "secondary-container": "#0266ff", "on-secondary-container": "#f9f7ff", "secondary-fixed": "#dae1ff", "outline": "#859398", "status-warning": "#FFB300", "on-surface-variant": "#bbc9cf", "surface-card": "#162A45", "bg-canvas": "#0A1628", "text-secondary": "#7A9CC6", "tertiary": "#3efe8a", "surface-variant": "#2a3548", "on-tertiary-container": "#005d2c", "background": "#071325", "on-secondary-fixed-variant": "#003fa4", "on-tertiary": "#003918", "on-tertiary-fixed": "#00210b", "on-secondary-fixed": "#001849" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "gutter-desktop": "1.5rem", "gutter": "1.25rem", "space-2xl": "3rem", "space-xl": "2rem", "space-3xl": "4.5rem", "space-xs": "0.25rem", "margin-desktop": "2.5rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem" }, "fontFamily": { "display-hero": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "headline-md": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "body-lg": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "body-md": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "headline-sm": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "mono-data-md": [ "SFMono-Regular","Consolas","Menlo","monospace" ], "mono-data-lg": [ "SFMono-Regular","Consolas","Menlo","monospace" ], "mono-data-sm": [ "SFMono-Regular","Consolas","Menlo","monospace" ], "headline-lg": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "label-caps": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "display-hero-mobile": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ], "body-sm": [ "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","sans-serif" ] }, "fontSize": { "display-hero": [ "48px", { "lineHeight": "58px", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "headline-md": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "26px", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "22px", "fontWeight": "400" } ], "headline-sm": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "mono-data-md": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "mono-data-lg": [ "18px", { "lineHeight": "24px", "fontWeight": "600" } ], "mono-data-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "label-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ], "display-hero-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" } ], "body-sm": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ] } } } };</script><link rel="stylesheet" href="assets/material-symbols.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.5)]"><div class="h-[72px] max-w-[1440px] mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="assets/logo.svg"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md font-bold tracking-tight text-text-primary">谱智安</span><span class="px-1.5 py-0.5 rounded text-[10px] font-mono-data-sm text-mono-data-sm font-semibold tracking-wider uppercase bg-surface-container-high text-primary">SpectraAI</span></div><span class="font-label-caps text-label-caps uppercase text-text-secondary tracking-wider">AI · 核素识别 · γ能谱分析</span></div></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="home" href="index.html">首页</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="product-features" href="product-features.html">产品功能</a><a aria-current="page" class="transition-colors py-1 text-primary font-semibold" data-path="core-technology" href="core-technology.html">核心技术</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="application-scenarios" href="application-scenarios.html">应用场景</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="solutions" href="solutions.html">解决方案</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="about-us" href="about.html">关于我们</a></nav><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden md:flex items-center gap-space-xs px-2.5 py-1 rounded bg-surface-container-low text-text-secondary font-mono-data-sm text-mono-data-sm"><span class="w-2 h-2 rounded-full bg-status-success shadow-[0_0_8px_rgba(0,230,118,0.7)]"></span><span class="text-on-surface-variant">模型引擎在线</span><span class="text-outline-variant font-sans">|</span><span class="font-mono-data-sm text-mono-data-sm text-text-primary">v2.4-RT</span></div><div class="hidden sm:flex items-center gap-1 text-on-surface-variant hover:text-on-surface px-2 py-1 rounded cursor-pointer font-body-sm text-body-sm transition-colors"><span class="material-symbols-outlined text-[18px]">language</span><span>CN</span></div><a class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-[#FFFFFF] font-headline-sm text-headline-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_28px_rgba(0,212,255,0.6)] hover:brightness-110 transition-all" data-path="platform-console" href="platform.html"><span>进入平台</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></a></div></div></header><main class="w-full pt-[72px] bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Field -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] bg-gradient-to-b from-primary-container/15 via-secondary-container/10 to-transparent blur-[120px] pointer-events-none"></div>
+<!-- Header Banner Section -->
+<section class="relative max-w-[1440px] mx-auto px-margin-desktop pt-space-2xl pb-space-3xl">
+<div class="flex flex-col gap-space-lg max-w-4xl">
+<div class="inline-flex items-center gap-space-sm px-3.5 py-1.5 rounded-full bg-surface-container-high w-fit shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-mono-data-sm text-mono-data-sm text-primary tracking-wide uppercase">Core Architecture · Deep Nuclear AI</span>
+<span class="text-outline-variant font-mono-data-sm">|</span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">Physical Priors + Interpretable AI</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-text-primary tracking-tight">
+          物理仿真驱动的<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-primary to-secondary">五层识别体系</span><br/>构筑核安全 AI 算法壁垒
+        </h1>
+<p class="font-body-lg text-body-lg text-text-secondary max-w-3xl leading-relaxed">
+          不以堆叠参数为壁垒，而以核辐射探测物理仿真与特征峰可解释性为核心纵深。谱智安将底层蒙特卡洛粒子输运模拟与现代深度时空神经网络紧密耦合，打破黑箱与硬件依赖，实现核能谱判读的高精度与高可靠性。
+        </p>
+<!-- Dynamic Tech Snapshot Metrics -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md pt-space-md">
+<div class="p-space-md rounded-xl bg-surface-panel shadow-lg flex flex-col gap-1">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">单核素准确率 (Single)</span>
+<div class="flex items-baseline gap-1">
+<span class="font-mono-data-lg text-mono-data-lg text-status-success font-bold">&gt; 95%</span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">Benchmarked</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-panel shadow-lg flex flex-col gap-1">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">双核素混合识别 (Mixed)</span>
+<div class="flex items-baseline gap-1">
+<span class="font-mono-data-lg text-mono-data-lg text-primary font-bold">&gt; 90%</span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">Top-1 Match</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-panel shadow-lg flex flex-col gap-1">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">单谱分析延迟 (Inference)</span>
+<div class="flex items-baseline gap-1">
+<span class="font-mono-data-lg text-mono-data-lg text-primary-fixed-dim font-bold">&lt; 1.0</span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">sec / spectrum</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-panel shadow-lg flex flex-col gap-1">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">核素库全景覆盖 (Library)</span>
+<div class="flex items-baseline gap-1">
+<span class="font-mono-data-lg text-mono-data-lg text-isotope-cs137 font-bold">≥ 15</span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">关键核素</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Five-Layer Deep Architecture Section -->
+<section class="w-full bg-surface-container-lowest py-space-3xl">
+<div class="max-w-[1440px] mx-auto px-margin-desktop flex flex-col gap-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-space-xs font-mono-data-sm text-mono-data-sm text-primary uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+<span>Five-Layer Deep Analytical Methodology</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+            五层纵深技术解析体系
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-text-secondary max-w-md">
+          从底层微观粒子输运到高层安全可解释性，打通全流程数据与算法链条，构建严密的技术护城河。
+        </p>
+</div>
+<!-- Five Layers Stack -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Layer 1: Geant4 -->
+<div class="lg:col-span-7 bg-surface-panel rounded-xl p-space-xl shadow-xl flex flex-col justify-between group transition-all duration-300">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-mono-data-sm text-mono-data-sm font-bold">L1</span>
+<span class="font-headline-md text-headline-md text-text-primary font-bold">Geant4 蒙特卡洛物理仿真建模</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high font-mono-data-sm text-mono-data-sm text-primary">高保真合成</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+              针对 NaI(Tl)、LaBr₃(Ce) 等主流闪烁体探测器进行真实物理结构三维精细建模。设定康普顿散射、光电效应及电子对效应精准物理截面，批量生成覆盖不同放射性核素、活度等级（Bq~MBq）、动态源距（0.1~10m）及不同屏蔽材质本底的百万级能谱训练集。
+            </p>
+</div>
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-lowest flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono-data-sm text-mono-data-sm text-text-secondary">
+<span>粒子输运追踪 (10⁶ 级 Event 仿真)</span>
+<span class="text-status-success font-semibold">100% 物理守恒拟合</span>
+</div>
+<!-- Progress / Visualizer Sparkline -->
+<div class="w-full h-12 flex items-end gap-1 pt-2">
+<div class="flex-1 bg-primary/20 h-4 rounded-t"></div>
+<div class="flex-1 bg-primary/30 h-6 rounded-t"></div>
+<div class="flex-1 bg-primary/40 h-5 rounded-t"></div>
+<div class="flex-1 bg-primary/60 h-10 rounded-t"></div>
+<div class="flex-1 bg-primary-container h-12 rounded-t"></div>
+<div class="flex-1 bg-primary/50 h-7 rounded-t"></div>
+<div class="flex-1 bg-primary/30 h-4 rounded-t"></div>
+<div class="flex-1 bg-primary/20 h-2 rounded-t"></div>
+<div class="flex-1 bg-primary/40 h-8 rounded-t"></div>
+<div class="flex-1 bg-primary-container h-11 rounded-t"></div>
+<div class="flex-1 bg-primary/60 h-6 rounded-t"></div>
+<div class="flex-1 bg-primary/20 h-3 rounded-t"></div>
+</div>
+</div>
+</div>
+<!-- Layer 2: Domain Adaptation -->
+<div class="lg:col-span-5 bg-surface-panel rounded-xl p-space-xl shadow-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-mono-data-sm text-mono-data-sm font-bold">L2</span>
+<span class="font-headline-md text-headline-md text-text-primary font-bold">跨域适配与泛化微调</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high font-mono-data-sm text-mono-data-sm text-secondary">Domain Adaptation</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+              融合 IAEA IDB 国际同位素数据库及 SFCOMPO-2.0 等权威真实放射实测库，运用最大均值差异（MMD）与域对抗训练对齐仿真谱与实测谱的特征分布，一举攻克纯仿真算法在部署落地时的“仿真与硬件失配”断层。
+            </p>
+</div>
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-lowest grid grid-cols-2 gap-space-sm font-mono-data-sm text-mono-data-sm">
+<div class="flex flex-col gap-1 p-2 rounded bg-surface-panel">
+<span class="text-text-secondary text-[11px]">源域 (Simulated)</span>
+<span class="text-primary font-semibold">Geant4 纯净谱</span>
+</div>
+<div class="flex flex-col gap-1 p-2 rounded bg-surface-panel">
+<span class="text-text-secondary text-[11px]">目标域 (Empirical)</span>
+<span class="text-secondary font-semibold">IAEA 实测基准</span>
+</div>
+</div>
+</div>
+<!-- Layer 3: Complex Environment Robustness -->
+<div class="lg:col-span-4 bg-surface-panel rounded-xl p-space-xl shadow-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-isotope-cs137 flex items-center justify-center font-mono-data-sm text-mono-data-sm font-bold">L3</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">复杂恶劣环境适应</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono-data-sm bg-surface-container-high text-status-warning">极低信噪比</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+              针对测量时间极短（如 3~10 秒快筛）导致的极低计数率场景，以及工业、医疗多源并存时的混合能谱严重重叠峰，通过通道注意力与频域去噪机制，在淹没基线中稳定抽离微弱同位素表征。
+            </p>
+</div>
+<div class="mt-space-md flex items-center gap-space-sm pt-space-sm">
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-text-secondary font-mono-data-sm text-mono-data-sm flex-1 text-center">抗抖动 ±15%</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest text-text-secondary font-mono-data-sm text-mono-data-sm flex-1 text-center">重叠峰解析度 92%</span>
+</div>
+</div>
+<!-- Layer 4: Feature Peak Interpretability -->
+<div class="lg:col-span-4 bg-surface-panel rounded-xl p-space-xl shadow-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-status-success flex items-center justify-center font-mono-data-sm text-mono-data-sm font-bold">L4</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">物理特征峰可解释机制</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono-data-sm bg-surface-container-high text-status-success">Grad-CAM</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+              彻底告别不可控的黑箱判别。神经网络内嵌空间注意力热力图（CAM），在判定类别时同步高亮模型决策所依赖的关键全能峰，与经典物理理论严格印证，提供供核安全专家复核的证据链。
+            </p>
+</div>
+<div class="mt-space-md flex flex-wrap gap-1.5 pt-space-xs font-mono-data-sm text-mono-data-sm">
+<span class="px-2 py-1 rounded bg-surface-container-lowest text-isotope-cs137">Cs-137: 661.7 keV</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest text-isotope-co60">Co-60: 1173.2 / 1332.5 keV</span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest text-isotope-k40">K-40: 1460.8 keV</span>
+</div>
+</div>
+<!-- Layer 5: Safe Rejection Mechanism -->
+<div class="lg:col-span-4 bg-surface-panel rounded-xl p-space-xl shadow-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-error flex items-center justify-center font-mono-data-sm text-mono-data-sm font-bold">L5</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">不确定性评估与安全拒识</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono-data-sm bg-surface-container-high text-error">防误判底线</span>
+</div>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+              核安全无容错空间。系统内置贝叶斯认知不确定性度量，当谱数据因探测器故障、极端异常屏蔽导致信息熵过高时，模型主动输出“判定置信不足，建议延长测量”，绝不盲目给出误导性推断。
+            </p>
+</div>
+<div class="mt-space-md p-2.5 rounded bg-surface-container-lowest flex items-center gap-2 font-mono-data-sm text-mono-data-sm text-error">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>主动防御误报 · 零盲猜判定</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Algorithm Deep-Dive: 2DCNN-BiLSTM Architecture -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-space-3xl w-full">
+<div class="flex flex-col gap-space-2xl">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="flex items-center gap-space-xs font-mono-data-sm text-mono-data-sm text-primary uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">memory</span>
+<span>Dual-Core Neural Network</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+          2DCNN-BiLSTM 复合神经网络架构
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+          能谱既具备空间几何形态特征（单能峰、康普顿坪、吸收边缘），又具备能量通道连续时序响应。谱智安创新的混合架构同时提取两重特征。
+        </p>
+</div>
+<!-- Network Pipeline Schematic -->
+<div class="bg-surface-panel rounded-xl p-space-xl shadow-2xl flex flex-col gap-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Step 1: Input & 2D Conv -->
+<div class="flex flex-col gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-mono-data-sm text-mono-data-sm font-bold flex items-center justify-center">1</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">2D 卷积多尺度特征抽取</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              将 1024/2048/4096 道能谱映射为拓扑结构矩阵，使用多尺寸非对称卷积核感知局部高斯峰形轮廓与本底连续谱。
+            </p>
+<div class="p-2.5 rounded bg-surface-container-lowest font-mono-data-sm text-mono-data-sm text-text-secondary flex flex-col gap-1">
+<span class="text-primary">Kernel: [1x3, 1x7, 3x3]</span>
+<span>Receptive Field: Full Spectrum</span>
+</div>
+</div>
+<!-- Step 2: BiLSTM -->
+<div class="flex flex-col gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary font-mono-data-sm text-mono-data-sm font-bold flex items-center justify-center">2</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">BiLSTM 双向能量通道关联</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              沿低能端至高能端双向传递时序记忆单元，精准捕捉特征峰与其关联次级射线（如反散射峰、特征 X 射线伴随峰）的跨能量依存关系。
+            </p>
+<div class="p-2.5 rounded bg-surface-container-lowest font-mono-data-sm text-mono-data-sm text-text-secondary flex flex-col gap-1">
+<span class="text-secondary">Hidden State: Forward &amp; Backward</span>
+<span>Long-distance Energy Dependency</span>
+</div>
+</div>
+<!-- Step 3: Lightweight Inference -->
+<div class="flex flex-col gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-status-success text-on-tertiary font-mono-data-sm text-mono-data-sm font-bold flex items-center justify-center">3</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">消费级芯片毫秒级低耗推理</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+              参数精简量化设计，权重体积 &lt; 50MB。在便携式工控机、树莓派或边缘端 GPU 上即插即用，单谱识别推理仅耗时 320ms。
+            </p>
+<div class="p-2.5 rounded bg-surface-container-lowest font-mono-data-sm text-mono-data-sm text-text-secondary flex flex-col gap-1">
+<span class="text-status-success">Latency: 0.32s (Edge CPU)</span>
+<span>Memory Footprint: 46.8 MB</span>
+</div>
+</div>
+</div>
+<!-- Inline Visual Concept Diagram -->
+<div class="p-space-lg rounded-lg bg-surface-container-lowest flex flex-col gap-space-md overflow-x-auto">
+<div class="flex items-center justify-between min-w-[600px]">
+<span class="font-mono-data-sm text-mono-data-sm text-text-secondary">Gamma Spectrum Pipeline · Data Flow</span>
+<span class="font-mono-data-sm text-mono-data-sm text-primary">FP32 → INT8 Quantized Compatible</span>
+</div>
+<div class="flex items-center justify-between min-w-[600px] py-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-24 h-12 rounded bg-surface-panel flex items-center justify-center font-mono-data-sm text-mono-data-sm text-text-primary">原始能谱 (N 道)</div>
+<span class="font-mono-data-sm text-[11px] text-text-secondary">Input [1, N, 1]</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">trending_flat</span>
+<div class="flex flex-col items-center gap-2">
+<div class="w-28 h-12 rounded bg-surface-container-high flex items-center justify-center font-mono-data-sm text-mono-data-sm text-primary">2D-CNN 空间提取</div>
+<span class="font-mono-data-sm text-[11px] text-text-secondary">Conv → BN → Mish</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">trending_flat</span>
+<div class="flex flex-col items-center gap-2">
+<div class="w-28 h-12 rounded bg-surface-container-high flex items-center justify-center font-mono-data-sm text-mono-data-sm text-secondary">BiLSTM 能量记忆</div>
+<span class="font-mono-data-sm text-[11px] text-text-secondary">Bidirectional [B, T, D]</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">trending_flat</span>
+<div class="flex flex-col items-center gap-2">
+<div class="w-32 h-12 rounded bg-surface-container-high flex items-center justify-center font-mono-data-sm text-mono-data-sm text-status-warning">注意力热力图验证</div>
+<span class="font-mono-data-sm text-[11px] text-text-secondary">Grad-CAM Cross Check</span>
+</div>
+<span class="material-symbols-outlined text-text-secondary">trending_flat</span>
+<div class="flex flex-col items-center gap-2">
+<div class="w-28 h-12 rounded bg-gradient-to-r from-primary-container to-secondary-container flex items-center justify-center font-mono-data-sm text-mono-data-sm text-white font-bold">核素定量结论</div>
+<span class="font-mono-data-sm text-[11px] text-status-success">概率 + 活度反演</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Spectrum Showcase Mockup -->
+<section class="w-full bg-surface-container-low py-space-3xl">
+<div class="max-w-[1440px] mx-auto px-margin-desktop flex flex-col gap-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-space-xs font-mono-data-sm text-mono-data-sm text-primary uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+<span>Feature Peak Attention Verification</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+            真实谱线特征峰可解释性验证示例
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-text-secondary max-w-md">
+          在识别判定的同时，系统自动锚定核素物理主能峰，提供可追溯、防伪误的高置信物理证据。
+        </p>
+</div>
+<!-- Graphical Spectrum Container -->
+<div class="bg-surface-panel rounded-xl p-space-xl shadow-2xl flex flex-col gap-space-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-md pb-space-sm">
+<div class="flex items-center gap-space-md">
+<span class="font-mono-data-md text-mono-data-md text-text-primary font-bold">测试样本：Cs-137 + Co-60 复杂混合源能谱</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-mono-data-sm text-mono-data-sm">NaI(Tl) 3x3 晶体</span>
+</div>
+<div class="flex items-center gap-space-sm font-mono-data-sm text-mono-data-sm">
+<span class="flex items-center gap-1.5 text-isotope-cs137"><span class="w-2.5 h-2.5 rounded-full bg-isotope-cs137"></span>Cs-137 (661.7 keV)</span>
+<span class="flex items-center gap-1.5 text-isotope-co60"><span class="w-2.5 h-2.5 rounded-full bg-isotope-co60"></span>Co-60 (1173 &amp; 1332 keV)</span>
+</div>
+</div>
+<!-- SVG Spectrum Display Chart -->
+<div class="relative w-full h-[280px] bg-surface-container-lowest rounded-lg p-space-md flex flex-col justify-between overflow-hidden">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between p-space-md pointer-events-none opacity-20">
+<div class="w-full h-px bg-outline-variant"></div>
+<div class="w-full h-px bg-outline-variant"></div>
+<div class="w-full h-px bg-outline-variant"></div>
+<div class="w-full h-px bg-outline-variant"></div>
+<div class="w-full h-px bg-outline-variant"></div>
+</div>
+<!-- The SVG Spectrum Curve -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 240">
+<defs>
+<lineargradient id="spectrumGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00D4FF" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#00D4FF" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Gradient Area Fill -->
+<path d="M 0,220 L 50,210 L 100,195 L 150,170 L 220,150 L 280,130 L 320,80 L 330,30 L 340,80 L 380,140 L 450,155 L 530,165 L 580,110 L 590,50 L 600,110 L 640,150 L 660,90 L 670,45 L 680,90 L 730,175 L 850,205 L 1000,220 L 1000,240 L 0,240 Z" fill="url(#spectrumGradient)"></path>
+<!-- Main Spectrum Trace Line -->
+<path d="M 0,220 L 50,210 L 100,195 L 150,170 L 220,150 L 280,130 L 320,80 L 330,30 L 340,80 L 380,140 L 450,155 L 530,165 L 580,110 L 590,50 L 600,110 L 640,150 L 660,90 L 670,45 L 680,90 L 730,175 L 850,205 L 1000,220" fill="none" stroke="#00D4FF" stroke-width="2.5"></path>
+<!-- Peak Indicators -->
+<!-- Peak 1: Cs-137 (661.7 keV) -->
+<circle cx="330" cy="30" fill="#FFB300" r="5"></circle>
+<line stroke="#FFB300" stroke-dasharray="4,4" stroke-width="1.5" x1="330" x2="330" y1="30" y2="240"></line>
+<!-- Peak 2: Co-60 (1173.2 keV) -->
+<circle cx="590" cy="50" fill="#00E676" r="5"></circle>
+<line stroke="#00E676" stroke-dasharray="4,4" stroke-width="1.5" x1="590" x2="590" y1="50" y2="240"></line>
+<!-- Peak 3: Co-60 (1332.5 keV) -->
+<circle cx="670" cy="45" fill="#00E676" r="5"></circle>
+<line stroke="#00E676" stroke-dasharray="4,4" stroke-width="1.5" x1="670" x2="670" y1="45" y2="240"></line>
+</svg>
+<!-- Floating Badges in Chart -->
+<div class="absolute top-4 left-[30%] -translate-x-1/2 p-2 rounded bg-surface-panel shadow-md flex flex-col items-center pointer-events-none">
+<span class="font-mono-data-sm text-[11px] text-isotope-cs137 font-bold">Cs-137 峰位</span>
+<span class="font-mono-data-sm text-[10px] text-text-secondary">661.7 keV · CAM: 0.98</span>
+</div>
+<div class="absolute top-6 left-[59%] -translate-x-1/2 p-2 rounded bg-surface-panel shadow-md flex flex-col items-center pointer-events-none">
+<span class="font-mono-data-sm text-[11px] text-isotope-co60 font-bold">Co-60 峰位 1</span>
+<span class="font-mono-data-sm text-[10px] text-text-secondary">1173.2 keV</span>
+</div>
+<div class="absolute top-4 left-[67%] -translate-x-1/2 p-2 rounded bg-surface-panel shadow-md flex flex-col items-center pointer-events-none">
+<span class="font-mono-data-sm text-[11px] text-isotope-co60 font-bold">Co-60 峰位 2</span>
+<span class="font-mono-data-sm text-[10px] text-text-secondary">1332.5 keV</span>
+</div>
+<!-- Bottom Axis Coordinates -->
+<div class="relative w-full flex justify-between font-mono-data-sm text-mono-data-sm text-text-secondary pt-2">
+<span>0 keV</span>
+<span>500 keV</span>
+<span>1000 keV</span>
+<span>1500 keV</span>
+<span>2000 keV</span>
+<span>3000 keV</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md font-mono-data-sm text-mono-data-sm">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="text-text-secondary">识别置信度 (Confidence)</span>
+<span class="text-status-success font-bold text-mono-data-md">99.4% (极高置信)</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="text-text-secondary">物理守恒一致性 (Physical Consistency)</span>
+<span class="text-primary font-bold text-mono-data-md">Pass (能量比 ∼ 1.13)</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="text-text-secondary">安全拒识状态 (Rejection Flag)</span>
+<span class="text-text-primary font-bold text-mono-data-md">Normal (未触发拒识)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Benchmarks & Competitive Matrix -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-space-3xl w-full">
+<div class="flex flex-col gap-space-2xl">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="flex items-center gap-space-xs font-mono-data-sm text-mono-data-sm text-primary uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">table_chart</span>
+<span>Competitive Differentiation</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+          关键技术指标与竞品全维对比
+        </h2>
+<p class="font-body-md text-body-md text-text-secondary">
+          相比传统人工调参峰搜索算法以及国外巨头深度绑定的封闭式硬件系统，谱智安在解绑硬件、智能混合分析及软件化敏捷性上具备压倒性代差优势。
+        </p>
+</div>
+<!-- Comparative Table -->
+<div class="overflow-x-auto rounded-xl shadow-2xl bg-surface-panel">
+<table class="w-full text-left font-body-md text-body-md">
+<thead>
+<tr class="bg-surface-container-high text-text-primary font-headline-sm text-headline-sm">
+<th class="p-space-md font-semibold">对比维度</th>
+<th class="p-space-md text-primary font-bold">谱智安 (SpectraAI)</th>
+<th class="p-space-md text-text-secondary font-normal">传统经验峰搜索算法 (Mariscotti/导数法)</th>
+<th class="p-space-md text-text-secondary font-normal">国际巨头一体化硬件算法 (ORTEC / Canberra)</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="bg-surface-panel hover:bg-surface-container-low transition-colors">
+<td class="p-space-md font-mono-data-sm text-mono-data-sm text-text-primary font-bold">硬件生态兼容性</td>
+<td class="p-space-md text-status-success font-semibold">软件化解绑 · 兼容任意探测器能谱</td>
+<td class="p-space-md text-text-secondary">需人工调校探测器通道刻度</td>
+<td class="p-space-md text-error">深度绑定高价专用仪器，不可跨机移植</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors">
+<td class="p-space-md font-mono-data-sm text-mono-data-sm text-text-primary font-bold">混合重叠峰拆解</td>
+<td class="p-space-md text-status-success font-semibold">BiLSTM 全谱时序关联 &gt; 90% 识别率</td>
+<td class="p-space-md text-text-secondary">多峰严重重叠时无法有效剥离</td>
+<td class="p-space-md text-text-secondary">依赖复杂同位素解谱库，耗时长</td>
+</tr>
+<tr class="bg-surface-panel hover:bg-surface-container-low transition-colors">
+<td class="p-space-md font-mono-data-sm text-mono-data-sm text-text-primary font-bold">极低统计计数鲁棒性</td>
+<td class="p-space-md text-status-success font-semibold">抗极弱信噪比，短时间快筛即刻识别</td>
+<td class="p-space-md text-text-secondary">低计数下统计涨落导致严重漏峰/虚假峰</td>
+<td class="p-space-md text-text-secondary">需长时间静态累积计数才可判别</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors">
+<td class="p-space-md font-mono-data-sm text-mono-data-sm text-text-primary font-bold">决策可解释性与防御</td>
+<td class="p-space-md text-status-success font-semibold">物理特征峰热力图 + 认知不确定性拒识</td>
+<td class="p-space-md text-text-secondary">基于拟合残差，无主动防盲判逻辑</td>
+<td class="p-space-md text-text-secondary">专有黑盒算法，仅给出最终定性指数</td>
+</tr>
+<tr class="bg-surface-panel hover:bg-surface-container-low transition-colors">
+<td class="p-space-md font-mono-data-sm text-mono-data-sm text-text-primary font-bold">算力门槛与延迟</td>
+<td class="p-space-md text-status-success font-semibold">消费级 CPU/轻量边缘端 &lt; 1 秒响应</td>
+<td class="p-space-md text-text-secondary">依赖复杂非线性最小二乘迭代拟合</td>
+<td class="p-space-md text-text-secondary">受限于专用固件嵌入式处理器</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Open Academic Collaboration & Ecosystem -->
+<section class="w-full bg-surface-container-lowest py-space-3xl">
+<div class="max-w-[1440px] mx-auto px-margin-desktop flex flex-col gap-space-2xl">
+<div class="bg-surface-panel rounded-xl p-space-2xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col gap-space-md max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high w-fit">
+<span class="w-2 h-2 rounded-full bg-status-success"></span>
+<span class="font-mono-data-sm text-mono-data-sm text-text-primary">南华大学核科学与技术优势学科联合赋能</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-text-primary">
+            开放学术协同与标准实测验证
+          </h3>
+<p class="font-body-md text-body-md text-text-secondary leading-relaxed">
+            谱智安算法团队持续推进“产学研测”一体化演进。我们面向核物理重点实验室、生态环境放射性监测机构开放仿真模拟能谱合成基准，并支持联合开展国际核安全标定试验。
+          </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<div class="flex items-center gap-2 text-text-secondary font-mono-data-sm text-mono-data-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">school</span>
+<span>联合实验室共建</span>
+</div>
+<div class="flex items-center gap-2 text-text-secondary font-mono-data-sm text-mono-data-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">dataset</span>
+<span>学术基准数据集申请</span>
+</div>
+<div class="flex items-center gap-2 text-text-secondary font-mono-data-sm text-mono-data-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+<span>API / SDK 试用测试</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-md w-full lg:w-auto">
+<a class="w-full sm:w-auto px-6 py-3 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 shadow-xl hover:brightness-110 transition-all" data-path="platform-console" href="platform.html">
+<span>申请技术接入评估</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto px-6 py-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-text-primary font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 transition-all" data-path="about-us" href="about.html">
+<span>了解研发团队</span>
+<span class="material-symbols-outlined text-[18px]">group</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest"><div class="max-w-[1440px] mx-auto px-margin-desktop py-space-2xl"><div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl pb-space-xl"><div class="lg:col-span-5 flex flex-col gap-space-md"><div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-surface-panel flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[20px]">scatter_plot</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md font-bold text-text-primary">谱智安 SpectraAI</span><span class="font-mono-data-sm text-mono-data-sm text-text-secondary">核素高精度智能识别计算体系</span></div></div><p class="font-body-md text-body-md text-text-secondary max-w-md">用 AI 赋能核安全，让每一份能谱都有答案。面向核设施运行、环境辐射监测、国土安检与海关反恐的高维度能谱分析系统。</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container font-mono-data-sm text-mono-data-sm text-isotope-co60"><span class="w-1.5 h-1.5 rounded-full bg-isotope-co60"></span>Co-60</span><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container font-mono-data-sm text-mono-data-sm text-isotope-cs137"><span class="w-1.5 h-1.5 rounded-full bg-isotope-cs137"></span>Cs-137</span><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container font-mono-data-sm text-mono-data-sm text-isotope-k40"><span class="w-1.5 h-1.5 rounded-full bg-isotope-k40"></span>K-40</span></div></div><div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-space-lg"><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-text-primary font-semibold">核心矩阵</span><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="product-features" href="product-features.html">智能寻峰算法</a><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="product-features" href="product-features.html">连续本底动态拟合</a><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="product-features" href="product-features.html">弱峰析取神经网络</a><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="product-features" href="product-features.html">活度定量反演</a></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-text-primary font-semibold">方案体系</span><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="solutions" href="solutions.html">核电基地全景监测</a><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="solutions" href="solutions.html">港口海关放射巡检</a><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="solutions" href="solutions.html">放射性废物处置追溯</a><a class="font-body-md text-body-md text-text-secondary hover:text-primary transition-colors" data-path="solutions" href="solutions.html">环境辐射移动巡测</a></div><div class="flex flex-col gap-space-sm"><span class="font-headline-sm text-headline-sm text-text-primary font-semibold">合规与架构</span><div class="flex flex-col gap-1"><span class="font-mono-data-sm text-mono-data-sm text-text-secondary">核安全 × 人工智能 × 可信识别</span><span class="font-body-sm text-body-sm text-on-surface-variant">GB/T 11684-2003 校验</span><span class="font-body-sm text-body-sm text-on-surface-variant">ISO 11929 可靠度区间评估</span><span class="font-mono-data-sm text-mono-data-sm text-primary">TLS 1.3 · 国密 SM4 遥测加密</span></div></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-text-secondary font-body-sm text-body-sm"><div class="flex items-center gap-space-md flex-wrap"><span class="font-mono-data-sm text-mono-data-sm">© 2024 谱智安 (SpectraAI) 实验室及工程技术团队. All rights reserved.</span><a class="hover:text-primary transition-colors" data-path="privacy-security" href="#">隐私与核安全政策</a><a class="hover:text-primary transition-colors" data-path="terms-service" href="#">服务协议</a></div><div class="flex items-center gap-space-xs font-mono-data-sm text-mono-data-sm text-primary"><span class="w-1.5 h-1.5 rounded-full bg-status-success"></span><span>IAEA Data Format Standard Compliant</span></div></div></div></footer></body></html>
